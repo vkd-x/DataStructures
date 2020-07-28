@@ -12,6 +12,9 @@ int main()
     ll.push_front(60);
     ll.push_front(70);
     ll.printList();
+    ll.reverseLinkedList();
+    std::cout << " After LinkedList " << std::endl;
+    ll.printList();
 
     LinkedList<std::string> llStr;
 

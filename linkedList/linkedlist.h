@@ -36,6 +36,7 @@ public:
     Node* newNode(T elem); //Returns pointer to new node
     void push_front( T elem); //Add node to the front of Linked List
     void printList();
+    void reverseLinkedList();
 };
 
 template <class T>
@@ -80,6 +81,22 @@ void LinkedList<T>::printList()
         tmp = tmp->next;
     }
     std::cout << std::endl;
+}
+
+template<class T>
+void LinkedList<T>::reverseLinkedList()
+{
+    Node* cur = head;
+    Node* prev = nullptr;
+    Node* next = nullptr;
+    while(cur != nullptr)
+    {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    head = prev;
 }
 
 
