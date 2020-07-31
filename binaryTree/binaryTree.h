@@ -9,6 +9,7 @@
 #define BINARY_TREE_H
 
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -35,6 +36,8 @@ public:
     void inOrder();
     void preOrder();
     void postOrder();
+    void inOrderIterative();
+    void inOrderIterative_2();
 
 private:
     void insertNodeRecur(Node*& , T elem);
@@ -115,5 +118,52 @@ void BinaryTree<T>::postOrderRecur(Node* node)
         postOrderRecur(node->rght);
         std::cout << node->elem <<" ";
     }
+}
+
+/*Inorder without recursion*/
+template <class T>
+void BinaryTree<T>::inOrderIterative()
+{
+    std::stack<Node*> s; //stack to store the nodes
+    Node* cur = rootNode;
+    if(cur == nullptr) return;
+    while(cur != nullptr || !s.empty())
+    {
+        while(cur != nullptr)
+        {
+            s.push(cur);
+            cur = cur->left;
+        }
+        //Assign a valid node 
+        cur = s.top();
+        s.pop();
+        std::cout << cur->elem << " ";
+        cur = cur->rght;
+    }
+}
+
+/*Iterative 2 Inorder*/
+template <class T>
+void BinaryTree<T>::inOrderIterative_2()
+{
+    std::stack<Node*> s; //stack to store the nodes
+    Node* cur = rootNode;
+    if(cur == nullptr) return;
+    do
+    {
+        while(cur != nullptr)
+        {
+            s.push(cur);
+            cur = cur->left;
+        }
+
+        if(!s.empty())
+        {
+            cur = s.top();
+            s.pop();
+            std::cout << cur->elem << " ";
+            cur = cur->rght;
+        }
+    }while(!s.empty() || cur != nullptr);
 }
 #endif

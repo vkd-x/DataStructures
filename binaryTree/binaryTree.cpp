@@ -18,6 +18,12 @@ int main()
 	std::cout << std::endl << " Inorder..." << std::endl;
 	bTree.inOrder();
 	std::cout << std::endl << " Inorder exit " << std::endl;
+	std::cout << std::endl << " Iterative Inorder..." << std::endl;
+	bTree.inOrderIterative();
+	std::cout << std::endl << " Iterative Inorder exit " << std::endl;
+	std::cout << std::endl << " Iterative 2 Inorder..." << std::endl;
+	bTree.inOrderIterative_2();
+	std::cout << std::endl << " Iterative 2 Inorder exit " << std::endl;
 	std::cout << std::endl << " Preorder..." << std::endl;
 	bTree.preOrder();
 	std::cout << std::endl << " Preorder exit " << std::endl;
